@@ -66,7 +66,7 @@ const Main = () => {
                 </div>}
             
 
-            <div className="main-bottom absolute bottom-0 w-full max-w-[900px] py-0 px-[20px] m-auto">
+            <div className="main-bottom absolute bottom-0 w-full max-w-[900px] py-0 px-[20px] mt-10">
                 <div className="search flex items-center justify-between gap-1 bg-white/60 py-3 pl-1 rounded-3xl">
                     <input onChange={(e) => setInput(e.target.value)} value={input} className='flex-1 bg-transparent border-none outline-none pl-1 text-md md:text-lg' type="text" placeholder='Enter a prompt here...' />
                     <div className='flex items-center gap-1 sm:gap-2'>

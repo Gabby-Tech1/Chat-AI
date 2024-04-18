@@ -29,20 +29,20 @@ const Main = () => {
                     <p><span className=' bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent'>Hello, Developer</span></p>
                     <p>How can I help you?</p>
                 </div>
-                <div className="cards grid grid-cols-2 lg:grid-cols-4 p-[20px] gap-[15px]">
-                    <div className="card hover:bg-gray-300 h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
+                <div className="cards grid grid-cols-2 lg:grid-cols-4 p-[15px] sm:p-[20px] gap-[15px]">
+                    <div className="card hover:bg-gray-300 h-[150px] sm:h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
                         <p className='text-gray-600 sm:text-xl text-md'>Suggest beautiful places to see on an upcoming road trip</p>
                         <FaRegCompass className='p-2 absolute bg-white rounded-full bottom-3 right-3 text-4xl sm:text-5xl text-black' />
                     </div>
-                    <div className="card hover:bg-gray-300 h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
+                    <div className="card hover:bg-gray-300 h-[150px] sm:h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
                         <p className='text-gray-600 sm:text-xl text-md'>Briefly summarize this concept: programming habit</p>
                         <FaRegLightbulb className='p-2 absolute bg-white rounded-full bottom-3 right-3 text-4xl sm:text-5xl text-black' />
                     </div>
-                    <div className="card hover:bg-gray-300 h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
+                    <div className="card hover:bg-gray-300 h-[150px] sm:h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
                         <p className='text-gray-600 sm:text-xl text-md'>Brainstorm bonding activities for our work retreat</p>
                         <TbMessage className='p-2 absolute bg-white rounded-full bottom-3 right-3 text-4xl sm:text-5xl text-black' />
                     </div>
-                    <div className="card hover:bg-gray-300 h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
+                    <div className="card hover:bg-gray-300 h-[150px] sm:h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
                         <p className='text-gray-600 sm:text-xl text-md'>Improve the readability of the following code</p>
                         <FaCode className='p-2 absolute bg-white rounded-full bottom-3 right-3 text-4xl sm:text-5xl text-black' />
                     </div>
@@ -66,7 +66,7 @@ const Main = () => {
                 </div>}
             
 
-            <div className="main-bottom absolute bottom-0 w-full max-w-[900px] py-0 px-[20px] mt-10">
+            <div className="main-bottom absolute bottom-0 w-full max-w-[900px] py-0 px-[20px] m-auto">
                 <div className="search flex items-center justify-between gap-1 bg-white/60 py-3 pl-1 rounded-3xl">
                     <input onChange={(e) => setInput(e.target.value)} value={input} className='flex-1 bg-transparent border-none outline-none pl-1 text-md md:text-lg' type="text" placeholder='Enter a prompt here...' />
                     <div className='flex items-center gap-1 sm:gap-2'>

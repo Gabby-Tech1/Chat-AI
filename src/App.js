@@ -1,13 +1,19 @@
-import Main from './Components/Main/Main';
-import Sidebar from './Components/Sidebar/Sidebar';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Home from './Pages/Home'
+import Login from './Pages/Login'
+import SignUp from './Pages/SignUp'
 
-function App() {
+const App = () => {
   return (
     <>
-      <Sidebar/>
-      <Main/>
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/signup' element={<SignUp/>} />
+      </Routes>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import GTContext from './Context/GTContext';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <GTContext>
-    <App />
-  </GTContext>
+  <BrowserRouter>
+    <GTContext>
+      <App />
+    </GTContext>
+  </BrowserRouter>
 );
 
 

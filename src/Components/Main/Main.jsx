@@ -29,20 +29,20 @@ const Main = () => {
                     <p><span className=' bg-gradient-to-r from-blue-500 to-red-500 bg-clip-text text-transparent'>Hello, Developer</span></p>
                     <p>How can I help you?</p>
                 </div>
-                <div className="cards grid grid-cols-2 lg:grid-cols-4 p-[15px] sm:p-[20px] gap-[15px]">
-                    <div className="card hover:bg-gray-300 h-[150px] sm:h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
+                <div className="cards grid grid-cols-2 lg:grid-cols-4 p-[20px] gap-[15px]">
+                    <div className="card hover:bg-gray-300 h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
                         <p className='text-gray-600 sm:text-xl text-md'>Suggest beautiful places to see on an upcoming road trip</p>
                         <FaRegCompass className='p-2 absolute bg-white rounded-full bottom-3 right-3 text-4xl sm:text-5xl text-black' />
                     </div>
-                    <div className="card hover:bg-gray-300 h-[150px] sm:h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
+                    <div className="card hover:bg-gray-300 h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
                         <p className='text-gray-600 sm:text-xl text-md'>Briefly summarize this concept: programming habit</p>
                         <FaRegLightbulb className='p-2 absolute bg-white rounded-full bottom-3 right-3 text-4xl sm:text-5xl text-black' />
                     </div>
-                    <div className="card hover:bg-gray-300 h-[150px] sm:h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
+                    <div className="card hover:bg-gray-300 h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
                         <p className='text-gray-600 sm:text-xl text-md'>Brainstorm bonding activities for our work retreat</p>
                         <TbMessage className='p-2 absolute bg-white rounded-full bottom-3 right-3 text-4xl sm:text-5xl text-black' />
                     </div>
-                    <div className="card hover:bg-gray-300 h-[150px] sm:h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
+                    <div className="card hover:bg-gray-300 h-[200px] p-[15px] bg-white/50 rounded-lg relative cursor-pointer">
                         <p className='text-gray-600 sm:text-xl text-md'>Improve the readability of the following code</p>
                         <FaCode className='p-2 absolute bg-white rounded-full bottom-3 right-3 text-4xl sm:text-5xl text-black' />
                     </div>

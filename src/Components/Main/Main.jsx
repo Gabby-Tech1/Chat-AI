@@ -10,17 +10,33 @@ import { FaMicrophoneAlt } from "react-icons/fa";
 import { IoMdSend } from "react-icons/io";
 import { Context } from '../../Context/GTContext';
 import '../../index.css'
+import { UserAuth } from '../../Context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Main = () => {
 
     const {onSent, recentPrompt, showResults, isLoading, resultData, setInput, input} = useContext(Context)
 
+    const {user, logOut} = UserAuth()
+    const navigate = useNavigate()
+  
+    const handleLogOut = async() => {
+      try {
+        await logOut()
+        navigate('/')
+      } catch (error) {
+        console.log(error)
+      }
+    }
 
   return (
     <div className='main flex-1 min-h-[100vh] pb-[15vh] relative'>
         <div className='nav flex items-center justify-between text-lg p-[12px] text-gray-600'>
             <p className='text-2xl md:text-4xl'>GT Chat AI</p>
-            <img className='w-[50px] sm:w-[60px] md:w-[70px] cursor-pointer rounded-[50%]' src={profile} alt="" />
+            <div className='flex items-center gap-2'>
+                <img className='w-[50px] sm:w-[60px] md:w-[70px] cursor-pointer rounded-[50%]' src={profile} alt="" />
+                <button onClick={handleLogOut} className='px-2 py-2 rounded font-semibold cursor-pointer text-white bg-gradient-to-r from-blue-500 to-red-500 md:text-xl'>Sign Out</button>
+            </div>
         </div>
         <div className='main-container max-w-[900px] m-auto'>
             {!showResults ? 

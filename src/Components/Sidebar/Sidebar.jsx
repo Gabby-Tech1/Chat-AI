@@ -6,16 +6,14 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 import { FaHistory } from "react-icons/fa";
 import { CiSettings } from "react-icons/ci";
 import { Context } from '../../Context/GTContext';
-
-
-
-
-
+import { AiOutlineClose } from 'react-icons/ai';
+import { doc, onSnapshot, updateDoc } from 'firebase/firestore';
+import { db } from '../../Firebase';
+import { UserAuth } from '../../Context/AuthContext';
 
 
 const Sidebar = () => {
     const [extend, setExtend] = useState(false)
-
     const {onSent, prevPrompt, setRecentPrompt, newChat} = useContext(Context)
 
     const loadPrompt = async (prompt) => {

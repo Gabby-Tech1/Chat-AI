@@ -1,11 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../Assets/NoBackgroumdLogo.png'
 import { FaGoogle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoArrowBackCircle } from 'react-icons/io5';
+import { UserAuth } from '../Context/AuthContext';
+import { auth, provider } from '../Firebase';
+
 
 
 const SignUp = () => {
+
+  const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('')
+
+    const navigate = useNavigate()
+
+    const {user, signUp, googleSign} = UserAuth()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        try {
+            await signUp(email, password)
+            navigate('/chat')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const googleSubmit = async (e) => {
+        e.preventDefault()
+
+        try {
+            await googleSign(auth, provider)
+            navigate('/chat')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
   return (
     <>
       <section className="h-screen">
@@ -29,12 +62,14 @@ const SignUp = () => {
           {/* <!-- Right column container with form --> */}
           <div className="md:w-8/12 lg:ml-6 lg:w-5/12">
             <h1 className='font-bold text-3xl md:text-4xl pb-4 md:pb-6 text-center bg-gradient-to-r from-blue-500 to-red-500 text-transparent bg-clip-text'>REGISTER AN ACCOUNT</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
 
               {/* User Name input */}
               <input
                 type="text"
                 placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
                 className="mb-3 p-4 rounded-3xl w-full outline-none"
                 />
@@ -44,6 +79,9 @@ const SignUp = () => {
                 type="email"
                 placeholder="Email address"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                
                 className="mb-3 p-4 rounded-3xl w-full outline-none"
               />
 
@@ -51,6 +89,8 @@ const SignUp = () => {
               <input
                 type="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 className="mb-2 p-4 rounded-3xl w-full outline-none"
               />
@@ -86,7 +126,6 @@ const SignUp = () => {
 
               
                 <button
-                  type="button"
                   className="inline-block hover:bg-gradient-to-l hover:from-blue-500 hover:to-red-500 bg-gradient-to-r from-blue-500 to-red-500 duration-500 ease-in-out w-full rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                 >
                   Register
@@ -121,16 +160,16 @@ const SignUp = () => {
                 </a>
               
               
-                <a
+                <button
                   className="mb-3 flex w-full items-center justify-center rounded bg-info px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]"
+                  onClick={googleSubmit}
                   style={{ backgroundColor: "#55acee" }}
-                  href="#!"
-                  role="button"
                 >
+
                   {/* <!-- Twitter --> */}
                   <FaGoogle className='mr-2' />
                   Continue with Google
-                </a>
+                </button>
               
               <p className='text-center p-4 text-lg'>
                 Already have an account? <a className='text-xl font-semibold text-blue-500 hover:text-red-500' href='/login'>Sign In</a>
